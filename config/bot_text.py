@@ -1,7 +1,5 @@
 from config.bot_data import money_name, balance_for_referral, balance_for_click
-from dataclasses import dataclass
 
-@dataclass
 class Text:
     welcome: str = "✅ <b>Добро пожаловать в StandClix!</b>\n" \
                    "➡️ <b>Здесь ты можешь поднять голды абсолютно без вложений</b>\n" \
