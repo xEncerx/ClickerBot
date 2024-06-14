@@ -1,6 +1,6 @@
+from aiogram.client.default import DefaultBotProperties
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram import Bot, Dispatcher
-from aiogram.enums import ParseMode
 
 from bot.utils.const_functions import GetImage, Mode
 from bot.data.bot_text import BotText
@@ -34,7 +34,12 @@ MIN_REFERRAL_WITHDRAW = float(BOT_CONFIG["min_referral_withdraw"])
 BOT_USERNAME = BOT_CONFIG["bot_username"]
 ADMIN_ID = list(map(int, ADMIN_ID))
 # -------------------------------AIOGRAM--------------------------------
-bot = Bot(token=TOKEN, parse_mode=ParseMode.HTML)
+bot = Bot(
+	token=TOKEN,
+	default=DefaultBotProperties(
+		parse_mode="HTML"
+	)
+)
 dp = Dispatcher(storage=MemoryStorage())
 # -------------------------------LOGGING--------------------------------
 logger.basicConfig(level=logger.INFO)
